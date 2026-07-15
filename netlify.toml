@@ -1,0 +1,12 @@
+# Deploy do site institucional Assunção & Santos no Netlify.
+# O Netlify detecta o Next.js e aplica o runtime oficial (@netlify/plugin-nextjs),
+# que suporta SSR/SSG, otimização de imagens e a rota dinâmica de OG do blog.
+
+[build]
+  command = "npm run build"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
