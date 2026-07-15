@@ -9,7 +9,7 @@ export function Processo() {
   return (
     <section
       id="processo"
-      className="relative isolate overflow-hidden bg-ink py-24 text-ivory md:py-36 lg:py-44"
+      className="relative isolate overflow-hidden bg-ink py-28 text-ivory md:py-40 lg:py-52"
     >
       <SectionCanvas tone="dark" curves="diagonal-dark" />
       <div className="grain absolute inset-0 -z-10 opacity-[0.04]" aria-hidden />

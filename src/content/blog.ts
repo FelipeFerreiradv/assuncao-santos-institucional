@@ -1,11 +1,11 @@
 /**
  * Blog institucional — estrutura preparada para SEO (topic clusters).
  *
- * Os artigos abaixo são RASCUNHOS (draft: true) de exemplo, escritos com foco
- * em SEO previdenciário/local e em conformidade com a OAB (informativos, sem
- * promessa de resultado). Devem ser revisados e aprovados pela advogada antes
- * de publicar (remover draft: true). Não há pipeline de markdown: cada artigo
- * é um array tipado de blocos de conteúdo.
+ * Artigos escritos com foco em SEO previdenciário/local e em conformidade com a
+ * OAB (informativos, sem promessa de resultado). Recomenda-se revisão final da
+ * advogada sobre o conteúdo jurídico. Para despublicar um artigo, marque
+ * `draft: true` (ele sai da indexação e ganha selo "Rascunho"). Não há pipeline
+ * de markdown: cada artigo é um array tipado de blocos de conteúdo.
  */
 
 export type BlogBlock =
@@ -49,7 +49,6 @@ export const POSTS: BlogPost[] = [
       "recurso INSS",
       "advogada previdenciária Mooca",
     ],
-    draft: true,
     featured: true,
     content: [
       {
@@ -98,7 +97,6 @@ export const POSTS: BlogPost[] = [
     date: "2026-06-12",
     readingMinutes: 5,
     keywords: ["BPC LOAS autismo", "benefício assistencial", "BPC deficiência"],
-    draft: true,
     content: [
       {
         type: "p",
@@ -139,7 +137,6 @@ export const POSTS: BlogPost[] = [
     date: "2026-05-20",
     readingMinutes: 6,
     keywords: ["aposentadoria especial", "agentes nocivos", "PPP LTCAT"],
-    draft: true,
     content: [
       {
         type: "p",
@@ -185,7 +182,6 @@ export const POSTS: BlogPost[] = [
       "escritório de advocacia Mooca",
       "atendimento online advogado",
     ],
-    draft: true,
     content: [
       {
         type: "p",

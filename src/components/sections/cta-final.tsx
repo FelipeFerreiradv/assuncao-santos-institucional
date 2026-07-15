@@ -9,7 +9,7 @@ export function CtaFinal() {
   return (
     <section
       id="contato"
-      className="relative isolate overflow-hidden bg-ink py-24 text-ivory md:py-36 lg:py-44"
+      className="relative isolate overflow-hidden bg-ink py-28 text-ivory md:py-44 lg:py-56"
     >
       <SectionCanvas tone="dark" curves="diagonal-dark" glow={["gold-tr", "gold-bl"]} />
       <div className="grain absolute inset-0 -z-10 opacity-[0.05]" aria-hidden />
