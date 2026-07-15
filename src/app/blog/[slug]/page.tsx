@@ -73,7 +73,7 @@ function Block({ block }: { block: BlogBlock }) {
         </blockquote>
       );
     default:
-      return <p className="mt-5 leading-relaxed text-slate text-pretty">{block.text}</p>;
+      return <p className="mt-5 leading-relaxed text-slate text-justify">{block.text}</p>;
   }
 }
 

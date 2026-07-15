@@ -78,7 +78,7 @@ export function HomeHero() {
               immediate
               delay={0.55}
               as="p"
-              className="relative mt-8 max-w-xl text-base leading-relaxed text-slate md:text-lg"
+              className="relative mt-8 max-w-xl text-base leading-relaxed text-slate text-justify md:text-lg"
             >
               {homeHero.subtitle}
             </Reveal>

@@ -63,7 +63,7 @@ export default function EquipePage() {
                     <p className="mt-1 text-[0.6875rem] uppercase tracking-wide-plus text-slate/70">
                       {m.oab}
                     </p>
-                    <p className="mt-5 flex-1 text-[0.9375rem] leading-relaxed text-slate">
+                    <p className="mt-5 flex-1 text-[0.9375rem] leading-relaxed text-slate text-justify">
                       {m.bio[0]}
                     </p>
                     <span className="mt-6 inline-flex items-center gap-3 text-[0.8125rem] font-medium uppercase tracking-wide-plus text-ink">

@@ -52,7 +52,7 @@ export function BlogCard({
         >
           {post.title}
         </h3>
-        <p className="mt-3 flex-1 text-[0.9375rem] leading-relaxed text-slate">
+        <p className="mt-3 flex-1 text-[0.9375rem] leading-relaxed text-slate text-justify">
           {post.description}
         </p>
 

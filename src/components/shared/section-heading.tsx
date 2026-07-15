@@ -81,6 +81,7 @@ export function SectionHeading({
           as="p"
           className={cn(
             "relative mt-7 max-w-2xl text-base leading-relaxed md:text-lg",
+            !centered && "text-justify",
             dark ? "text-ivory/70" : "text-slate"
           )}
         >

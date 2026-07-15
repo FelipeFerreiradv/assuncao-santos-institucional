@@ -59,7 +59,7 @@ export default function SobrePage() {
           <div className="lg:col-span-7">
             <div className="space-y-6">
               {historia.paragraphs.map((p, i) => (
-                <Reveal key={i} as="p" delay={i * 0.06} className="text-base leading-relaxed text-slate text-pretty md:text-lg">
+                <Reveal key={i} as="p" delay={i * 0.06} className="text-base leading-relaxed text-slate text-justify md:text-lg">
                   {p}
                 </Reveal>
               ))}
@@ -69,7 +69,7 @@ export default function SobrePage() {
               <h2 className="font-display text-2xl font-medium tracking-tight text-ink">
                 {missao.title}
               </h2>
-              <p className="mt-4 text-base leading-relaxed text-slate text-pretty">
+              <p className="mt-4 text-base leading-relaxed text-slate text-justify">
                 {missao.text}
               </p>
             </Reveal>
@@ -113,7 +113,7 @@ export default function SobrePage() {
             <p className="mt-2 text-sm font-medium text-gold-deep">
               {SITE.lawyer.role} · {SITE.lawyer.oab}
             </p>
-            <Reveal delay={0.2} as="p" className="mt-6 max-w-xl text-base leading-relaxed text-slate md:text-lg">
+            <Reveal delay={0.2} as="p" className="mt-6 max-w-xl text-base leading-relaxed text-slate text-justify md:text-lg">
               Advogada com 10 anos de dedicação ao Direito Previdenciário, à frente de uma
               advocacia próxima e humana — que trata cada cliente como pessoa antes de tratar
               como processo.

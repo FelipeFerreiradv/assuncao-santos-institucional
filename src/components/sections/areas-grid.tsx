@@ -64,7 +64,7 @@ export function AreasGrid({ withHeading = true, className }: AreasGridProps) {
                   {area.name}
                 </h3>
                 <p className="mt-2 text-sm font-medium text-gold-deep">{area.tagline}</p>
-                <p className="mt-4 flex-1 text-[0.9375rem] leading-relaxed text-slate">
+                <p className="mt-4 flex-1 text-[0.9375rem] leading-relaxed text-slate text-justify">
                   {area.shortDescription}
                 </p>
 

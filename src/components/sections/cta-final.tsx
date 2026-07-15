@@ -37,7 +37,7 @@ export function CtaFinal() {
             className="mt-6 font-display text-4xl leading-[1.08] font-medium tracking-tight text-balance text-ivory md:text-5xl lg:text-6xl"
           />
 
-          <Reveal delay={0.35} as="p" className="mt-7 max-w-2xl text-base leading-relaxed text-ivory/75 md:text-lg">
+          <Reveal delay={0.35} as="p" className="mt-7 max-w-2xl text-base leading-relaxed text-ivory/75 text-justify md:text-lg">
             {ctaFinal.text}
           </Reveal>
 

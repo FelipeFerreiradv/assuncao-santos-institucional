@@ -46,7 +46,7 @@ export function PageHero({
             immediate
             delay={0.4}
             as="p"
-            className="mt-7 max-w-2xl text-base leading-relaxed text-slate text-pretty md:text-lg"
+            className="mt-7 max-w-2xl text-base leading-relaxed text-slate text-justify md:text-lg"
           >
             {intro}
           </Reveal>

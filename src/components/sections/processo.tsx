@@ -41,7 +41,7 @@ export function Processo() {
               <h3 className="mt-6 font-display text-2xl font-medium tracking-tight text-ivory">
                 {step.title}
               </h3>
-              <p className="mt-3 text-[0.9375rem] leading-relaxed text-ivory/70">{step.text}</p>
+              <p className="mt-3 text-[0.9375rem] leading-relaxed text-ivory/70 text-justify">{step.text}</p>
             </StaggerItem>
           ))}
         </Stagger>

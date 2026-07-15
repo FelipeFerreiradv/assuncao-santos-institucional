@@ -58,7 +58,7 @@ function AccordionContent({
     >
       <div
         className={cn(
-          "max-w-2xl pb-8 text-[0.9375rem] leading-relaxed text-slate",
+          "max-w-2xl pb-8 text-[0.9375rem] leading-relaxed text-slate text-justify",
           className
         )}
       >

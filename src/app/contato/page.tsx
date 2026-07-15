@@ -45,7 +45,7 @@ export default function ContatoPage() {
                 <MessageCircle aria-hidden strokeWidth={1.75} className="size-4" />
                 Fale agora
               </p>
-              <p className="mt-4 text-base leading-relaxed text-slate">
+              <p className="mt-4 text-base leading-relaxed text-slate text-justify">
                 O primeiro contato acontece pelo WhatsApp, no seu tempo. A partir dele,
                 agendamos uma conversa presencial na Mooca ou online.
               </p>
@@ -114,7 +114,7 @@ export default function ContatoPage() {
               <h2 className="font-display text-2xl font-medium tracking-tight text-ink md:text-3xl">
                 Prefere escrever? <span className="italic text-gold-deep">Envie a sua mensagem</span>
               </h2>
-              <p className="mt-3 text-sm leading-relaxed text-slate">
+              <p className="mt-3 text-sm leading-relaxed text-slate text-justify">
                 Preencha os campos abaixo e a sua mensagem abre no WhatsApp já pré-preenchida —
                 assim conversamos com o contexto do seu caso.
               </p>

@@ -29,7 +29,7 @@ export function Diferenciais() {
               <h3 className="mt-6 font-display text-xl font-medium tracking-tight text-ink">
                 {item.title}
               </h3>
-              <p className="mt-3 text-[0.9375rem] leading-relaxed text-slate">{item.text}</p>
+              <p className="mt-3 text-[0.9375rem] leading-relaxed text-slate text-justify">{item.text}</p>
             </StaggerItem>
           ))}
         </Stagger>

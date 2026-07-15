@@ -15,7 +15,7 @@ export function LegalContent({ blocks }: { blocks: LegalBlock[] }) {
               </h2>
               <div className="mt-4 space-y-3">
                 {b.body.map((p, i) => (
-                  <p key={i} className="text-[0.9375rem] leading-relaxed text-slate text-pretty">
+                  <p key={i} className="text-[0.9375rem] leading-relaxed text-slate text-justify">
                     {p}
                   </p>
                 ))}

@@ -103,7 +103,7 @@ export default async function MembroPage({
                   key={i}
                   as="p"
                   delay={i * 0.06}
-                  className="text-base leading-relaxed text-slate text-pretty first:font-display first:text-xl first:text-ink first:italic md:text-lg md:first:text-2xl"
+                  className="text-base leading-relaxed text-slate [&:not(:first-child)]:text-justify first:font-display first:text-xl first:text-ink first:italic md:text-lg md:first:text-2xl"
                 >
                   {p}
                 </Reveal>

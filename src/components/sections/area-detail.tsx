@@ -20,7 +20,7 @@ export function AreaDetail({ area, meta }: { area: ExtendedArea; meta: Area }) {
               key={i}
               as="p"
               delay={i * 0.08}
-              className="text-lg leading-relaxed text-slate text-pretty first:font-display first:text-xl first:text-ink first:italic md:first:text-2xl"
+              className="text-lg leading-relaxed text-slate [&:not(:first-child)]:text-justify first:font-display first:text-xl first:text-ink first:italic md:first:text-2xl"
             >
               {p}
             </Reveal>
@@ -38,7 +38,7 @@ export function AreaDetail({ area, meta }: { area: ExtendedArea; meta: Area }) {
                   </h2>
                   <div className="mt-5 space-y-4">
                     {s.body.map((p, i) => (
-                      <p key={i} className="text-base leading-relaxed text-slate text-pretty">
+                      <p key={i} className="text-base leading-relaxed text-slate text-justify">
                         {p}
                       </p>
                     ))}

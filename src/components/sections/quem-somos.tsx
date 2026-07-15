@@ -50,7 +50,7 @@ export function QuemSomos() {
             />
             <div className="mt-8 space-y-6">
               {quemSomos.paragraphs.map((p, i) => (
-                <Reveal key={i} as="p" delay={0.1 + i * 0.08} className="max-w-2xl text-base leading-relaxed text-slate md:text-lg">
+                <Reveal key={i} as="p" delay={0.1 + i * 0.08} className="max-w-2xl text-base leading-relaxed text-slate text-justify md:text-lg">
                   {p}
                 </Reveal>
               ))}
