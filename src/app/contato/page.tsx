@@ -37,7 +37,7 @@ export default function ContatoPage() {
 
       <section className="relative isolate overflow-hidden bg-ivory py-16 md:py-24">
         <SectionCanvas curves="top-right" glow={["gold-tr"]} />
-        <div className="container-luxe grid gap-12 lg:grid-cols-12 lg:gap-16">
+        <div className="container-wide grid gap-12 lg:grid-cols-12 lg:gap-16">
           {/* Informações */}
           <div className="lg:col-span-5">
             <div className="border border-gold/25 bg-paper p-8">

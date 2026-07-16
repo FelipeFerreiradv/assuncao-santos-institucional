@@ -1,17 +1,14 @@
 import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/metadata";
-import { getFaqSchema } from "@/lib/schema";
-import { faqInstitucional } from "@/content/institucional";
-import { JsonLd } from "@/components/seo/json-ld";
 import { HomeHero } from "@/components/sections/home-hero";
 import { QuemSomos } from "@/components/sections/quem-somos";
-import { AreasGrid } from "@/components/sections/areas-grid";
+import { AreasEditorial } from "@/components/sections/areas-editorial";
 import { Diferenciais } from "@/components/sections/diferenciais";
 import { Processo } from "@/components/sections/processo";
+import { EquipeHome } from "@/components/sections/equipe-home";
 import { Depoimentos } from "@/components/sections/depoimentos";
 import { BlogDestaque } from "@/components/sections/blog-destaque";
-import { FaqSection } from "@/components/sections/faq-section";
-import { CtaFinal } from "@/components/sections/cta-final";
+import { ContatoSection } from "@/components/sections/contato-section";
 
 export const metadata: Metadata = buildMetadata({
   title: "Escritório de Advocacia na Mooca, São Paulo",
@@ -27,24 +24,24 @@ export const metadata: Metadata = buildMetadata({
   ],
 });
 
+/**
+ * Home institucional — percurso: apresentação → sobre → áreas → diferenciais →
+ * metodologia → equipe → depoimentos → conteúdo → contato.
+ * A home funciona como vitrine que distribui o leitor para as páginas internas;
+ * o FAQ vive em /faq e nas páginas de área (onde o schema FAQPage é emitido).
+ */
 export default function HomePage() {
   return (
     <>
-      <JsonLd data={getFaqSchema(faqInstitucional.items)} id="ld-faq-home" />
       <HomeHero />
       <QuemSomos />
-      <AreasGrid />
+      <AreasEditorial />
       <Diferenciais />
       <Processo />
+      <EquipeHome />
       <Depoimentos />
       <BlogDestaque />
-      <FaqSection
-        number={faqInstitucional.number}
-        eyebrow={faqInstitucional.eyebrow}
-        title={faqInstitucional.title}
-        items={faqInstitucional.items}
-      />
-      <CtaFinal />
+      <ContatoSection />
     </>
   );
 }

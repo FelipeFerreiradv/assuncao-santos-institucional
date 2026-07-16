@@ -36,12 +36,12 @@ export function Depoimentos() {
   return (
     <section
       id="depoimentos"
-      className="relative isolate overflow-hidden bg-paper py-24 md:py-36 lg:py-44"
+      className="relative isolate overflow-hidden bg-paper py-28 lg:py-40"
     >
       <SectionCanvas curves="horizontal" glow={["gold-tl"]} />
-      <div className="container-luxe">
+      <div className="container-wide">
         <SectionHeading
-          number="06"
+          number="07"
           eyebrow="Depoimentos"
           title="Quem já foi atendido por aqui"
           intro="Avaliações reais e verificadas de clientes no Google."

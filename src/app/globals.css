@@ -135,6 +135,34 @@ body {
   }
 }
 
+/* Container institucional — respiro maior, escala corporativa.
+   Usado no header, footer e nas seções da home. */
+@utility container-wide {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 96rem;
+  padding-inline: 1.5rem;
+
+  @media (min-width: 768px) {
+    padding-inline: 3rem;
+  }
+  @media (min-width: 1280px) {
+    padding-inline: 4rem;
+  }
+}
+
+/* Container de leitura — textos longos e páginas legais. */
+@utility container-narrow {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 64rem;
+  padding-inline: 1.5rem;
+
+  @media (min-width: 768px) {
+    padding-inline: 3rem;
+  }
+}
+
 @utility hairline-gold {
   position: relative;
 

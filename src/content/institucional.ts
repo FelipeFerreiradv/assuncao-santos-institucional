@@ -47,7 +47,7 @@ export const trustBar = [
 
 /* ————— Quem somos (resumo na home) ————— */
 export const quemSomos = {
-  number: "01",
+  number: "02",
   eyebrow: "Quem somos",
   title: "Mais do que resolver processos, cuidamos de histórias de vida.",
   paragraphs: [

@@ -103,7 +103,7 @@ export default async function ArticlePage({
       {/* Cabeçalho do artigo */}
       <header className="relative isolate overflow-hidden bg-ivory pt-32 pb-12 md:pt-40 md:pb-16">
         <SectionCanvas curves="top-right" glow={["gold-tr"]} />
-        <div className="container-luxe max-w-3xl">
+        <div className="container-wide max-w-3xl">
           <Breadcrumb
             items={[
               { label: "Início", href: "/" },
@@ -137,7 +137,7 @@ export default async function ArticlePage({
 
       {/* Corpo */}
       <article className="relative bg-ivory pb-16 md:pb-24">
-        <div className="container-luxe max-w-3xl text-base md:text-lg">
+        <div className="container-wide max-w-3xl text-base md:text-lg">
           <p className="border-l-2 border-gold/50 pl-5 font-display text-xl italic leading-relaxed text-ink md:text-2xl">
             {post.description}
           </p>
@@ -184,7 +184,7 @@ export default async function ArticlePage({
       {related.length > 0 && (
         <section className="relative isolate overflow-hidden bg-canvas py-20 md:py-28">
           <SectionCanvas curves="bottom-left" glow={["sand-tr"]} />
-          <div className="container-luxe">
+          <div className="container-wide">
             <p className="mb-10 flex items-center gap-3 text-[0.6875rem] font-medium uppercase tracking-luxe text-gold-deep">
               <span aria-hidden className="h-px w-8 bg-gold" />
               Continue lendo

@@ -6,9 +6,9 @@ import { Stagger, StaggerItem } from "@/components/motion/stagger";
 
 export function Diferenciais() {
   return (
-    <section className="relative isolate overflow-hidden bg-cream py-24 md:py-36 lg:py-44">
+    <section className="relative isolate overflow-hidden bg-cream py-28 lg:py-40">
       <SectionCanvas curves="horizontal" glow={["gold-tr", "sand-br"]} />
-      <div className="container-luxe">
+      <div className="container-wide">
         <SectionHeading
           number={diferenciais.number}
           eyebrow={diferenciais.eyebrow}

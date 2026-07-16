@@ -12,12 +12,12 @@ export function BlogDestaque() {
   if (posts.length === 0) return null;
 
   return (
-    <section className="relative isolate overflow-hidden bg-canvas py-24 md:py-36 lg:py-44">
+    <section className="relative isolate overflow-hidden bg-canvas py-28 lg:py-40">
       <SectionCanvas curves="bottom-left" glow={["sand-tr"]} />
-      <div className="container-luxe">
+      <div className="container-wide">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <SectionHeading
-            number="07"
+            number="08"
             eyebrow="Conteúdo"
             title="Artigos para você entender os seus direitos"
           />

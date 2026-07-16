@@ -18,12 +18,12 @@ export function AreasGrid({ withHeading = true, className }: AreasGridProps) {
     <section
       id="areas"
       className={cn(
-        "relative isolate overflow-hidden bg-ivory py-24 md:py-36 lg:py-44",
+        "relative isolate overflow-hidden bg-ivory py-28 lg:py-40",
         className
       )}
     >
       <SectionCanvas curves="bottom-right" grid glow={["gold-br"]} />
-      <div className="container-luxe">
+      <div className="container-wide">
         {withHeading && (
           <SectionHeading
             number="02"

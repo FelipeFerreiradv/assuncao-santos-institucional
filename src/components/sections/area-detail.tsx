@@ -12,7 +12,7 @@ export function AreaDetail({ area, meta }: { area: ExtendedArea; meta: Area }) {
   return (
     <section className="relative isolate overflow-hidden bg-ivory py-20 md:py-28">
       <SectionCanvas curves="top-left" />
-      <div className="container-luxe">
+      <div className="container-wide">
         {/* Lead */}
         <div className="max-w-3xl space-y-6">
           {area.lead.map((p, i) => (
@@ -51,6 +51,36 @@ export function AreaDetail({ area, meta }: { area: ExtendedArea; meta: Area }) {
           {/* Aside */}
           <aside className="lg:col-span-4">
             <div className="lg:sticky lg:top-32 lg:space-y-6">
+              {/* Índice da página — leitura institucional de conteúdo longo */}
+              <nav
+                aria-label="Nesta página"
+                className="mb-6 border border-stone-300/40 bg-paper p-7 lg:mb-0"
+              >
+                <h2 className="text-[0.6875rem] font-medium uppercase tracking-luxe text-gold-deep">
+                  Nesta página
+                </h2>
+                <ol className="mt-5 space-y-3">
+                  {area.sections.map((s, i) => (
+                    <li key={s.id}>
+                      <a
+                        href={`#${s.id}`}
+                        className="group flex gap-3 text-sm leading-relaxed text-slate transition-colors duration-300 hover:text-ink"
+                      >
+                        <span
+                          aria-hidden
+                          className="text-[0.625rem] font-medium tracking-luxe text-gold-deep/70"
+                        >
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
+                        <span className="border-b border-transparent transition-colors duration-300 group-hover:border-gold">
+                          {s.h2}
+                        </span>
+                      </a>
+                    </li>
+                  ))}
+                </ol>
+              </nav>
+
               <div className="border border-gold/25 bg-paper p-7">
                 <h2 className="text-[0.6875rem] font-medium uppercase tracking-luxe text-gold-deep">
                   Como podemos ajudar

@@ -37,7 +37,7 @@ export default function EquipePage() {
 
       <section className="relative isolate overflow-hidden bg-ivory py-20 md:py-28">
         <SectionCanvas curves="bottom-right" glow={["gold-br"]} />
-        <div className="container-luxe">
+        <div className="container-wide">
           <div className="grid gap-8 md:grid-cols-2 lg:gap-12">
             {EQUIPE.map((m) => (
               <Reveal key={m.slug}>

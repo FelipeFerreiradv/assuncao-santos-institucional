@@ -13,7 +13,7 @@ export function Processo() {
     >
       <SectionCanvas tone="dark" curves="diagonal-dark" />
       <div className="grain absolute inset-0 -z-10 opacity-[0.04]" aria-hidden />
-      <div className="container-luxe">
+      <div className="container-wide">
         <SectionHeading
           number={processo.number}
           eyebrow={processo.eyebrow}

@@ -21,7 +21,7 @@ export function CtaFinal() {
         {ctaFinal.number}
       </span>
 
-      <div className="container-luxe">
+      <div className="container-wide">
         <div className="max-w-3xl">
           <Reveal>
             <span className="flex items-center gap-4 text-[0.6875rem] font-medium uppercase tracking-luxe text-gold">

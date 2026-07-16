@@ -43,7 +43,7 @@ export default function BlogPage() {
 
       <section className="relative isolate overflow-hidden bg-ivory py-16 md:py-24">
         <SectionCanvas curves="top-right" glow={["gold-tr"]} />
-        <div className="container-luxe">
+        <div className="container-wide">
           {/* Destaque */}
           {featured && (
             <Reveal className="mb-16">

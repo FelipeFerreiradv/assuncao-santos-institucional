@@ -28,6 +28,13 @@ export const SITE = {
   state: "SP",
   founded: 2011,
 
+  /** Faixa de autoridade do hero. Apenas dados factuais e já validados. */
+  stats: [
+    { label: "Anos em Direito Previdenciário", value: 10, suffix: "+", display: null },
+    { label: "Áreas do Direito", value: 4, suffix: "", display: null },
+    { label: "Atendimento online", value: 0, suffix: "", display: "Nacional" },
+  ],
+
   // Advogada responsável (firma individual)
   lawyer: {
     name: "Dra. Fernanda Assunção",

@@ -8,7 +8,7 @@ export function Valores() {
   return (
     <section className="relative isolate overflow-hidden bg-cream py-24 md:py-32">
       <SectionCanvas curves="bottom-right" glow={["gold-br"]} />
-      <div className="container-luxe">
+      <div className="container-wide">
         <SectionHeading
           number="03"
           eyebrow="Nossos valores"

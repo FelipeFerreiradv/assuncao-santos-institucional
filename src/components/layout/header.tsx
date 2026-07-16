@@ -11,7 +11,7 @@ import {
   useScroll,
   type Variants,
 } from "framer-motion";
-import { ChevronDown, Instagram, Mail, Phone, X } from "lucide-react";
+import { ArrowRight, ChevronDown, Instagram, Mail, Phone, X } from "lucide-react";
 import { SITE } from "@/lib/site";
 import { AREAS } from "@/content/areas";
 import { WhatsAppCta } from "@/components/shared/whatsapp-cta";
@@ -126,7 +126,7 @@ export function Header() {
       >
         <div
           className={cn(
-            "container-luxe flex items-center justify-between gap-6 transition-[height] duration-700 ease-out-expo",
+            "container-wide flex items-center justify-between gap-6 transition-[height] duration-700 ease-out-expo",
             scrolled ? "h-16 md:h-18" : "h-20 md:h-24"
           )}
         >
@@ -159,26 +159,52 @@ export function Header() {
                             className="size-3.5 transition-transform duration-500 group-hover:rotate-180"
                           />
                         </Link>
-                        {/* Dropdown — abre por hover e por foco de teclado */}
-                        <div className="invisible absolute left-1/2 top-full z-10 w-72 -translate-x-1/2 pt-4 opacity-0 transition-all duration-300 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-                          <ul className="border border-gold/20 bg-paper/95 p-2 shadow-[0_24px_60px_-40px_rgba(11,15,25,0.4)] backdrop-blur">
-                            {AREAS.map((area) => (
-                              <li key={area.slug}>
-                                <Link
-                                  href={`/atuacao/${area.slug}`}
-                                  className="flex items-baseline gap-3 px-4 py-3 transition-colors duration-300 hover:bg-gold/10"
-                                >
-                                  <span
-                                    aria-hidden
-                                    className="text-[0.625rem] font-medium tracking-luxe text-gold-deep"
+                        {/* Mega menu — abre por hover e por foco de teclado */}
+                        <div className="invisible absolute left-1/2 top-full z-10 w-[44rem] -translate-x-1/2 pt-4 opacity-0 transition-all duration-300 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+                          <div className="border border-gold/20 bg-paper/95 p-7 shadow-[0_24px_60px_-40px_rgba(11,15,25,0.4)] backdrop-blur-xl">
+                            <p className="mb-5 flex items-center gap-3 text-[0.625rem] font-medium uppercase tracking-luxe text-gold-deep">
+                              <span aria-hidden className="h-px w-8 bg-gold" />
+                              Áreas de atuação
+                            </p>
+
+                            <ul className="grid grid-cols-2 gap-1">
+                              {AREAS.map((area) => (
+                                <li key={area.slug}>
+                                  <Link
+                                    href={`/atuacao/${area.slug}`}
+                                    className="flex gap-4 p-3 transition-colors duration-300 hover:bg-gold/10"
                                   >
-                                    {area.number}
-                                  </span>
-                                  <span className="text-sm text-ink">{area.name}</span>
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
+                                    <span
+                                      aria-hidden
+                                      className="font-display text-lg leading-none text-gold-deep/50"
+                                    >
+                                      {area.number}
+                                    </span>
+                                    <span className="block">
+                                      <span className="block text-sm font-medium text-ink">
+                                        {area.name}
+                                      </span>
+                                      <span className="mt-1 block text-xs leading-relaxed text-slate">
+                                        {area.tagline}
+                                      </span>
+                                    </span>
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+
+                            <Link
+                              href="/atuacao"
+                              className="group/all mt-5 flex items-center gap-2 border-t border-ink/10 pt-5 text-[0.6875rem] font-medium uppercase tracking-wide-plus text-ink transition-colors duration-300 hover:text-gold-deep"
+                            >
+                              Ver todas as áreas
+                              <ArrowRight
+                                aria-hidden
+                                strokeWidth={1.75}
+                                className="size-3.5 transition-transform duration-500 group-hover/all:translate-x-1"
+                              />
+                            </Link>
+                          </div>
                         </div>
                       </li>
                     );
@@ -239,7 +265,7 @@ export function Header() {
             transition={{ duration: 0.6, ease: EASE_LUXE }}
             className="fixed inset-0 z-[60] flex flex-col bg-ink lg:hidden"
           >
-            <div className="container-luxe flex h-20 shrink-0 items-center justify-between">
+            <div className="container-wide flex h-20 shrink-0 items-center justify-between">
               <Wordmark tone="dark" />
               <button
                 type="button"
@@ -265,7 +291,7 @@ export function Header() {
                     transition: { staggerChildren: 0.08, delayChildren: 0.15 },
                   },
                 }}
-                className="container-luxe w-full space-y-1 py-8"
+                className="container-wide w-full space-y-1 py-8"
               >
                 {SITE.nav.map((link, index) => (
                   <motion.li key={link.href} variants={menuItem}>
@@ -293,7 +319,7 @@ export function Header() {
               initial={reduced ? { opacity: 0 } : { opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, delay: 0.6, ease: EASE_LUXE }}
-              className="container-luxe shrink-0 border-t border-ivory/10 py-7"
+              className="container-wide shrink-0 border-t border-ivory/10 py-7"
             >
               <ul className="flex flex-col gap-3 text-sm text-ivory/70">
                 <li>

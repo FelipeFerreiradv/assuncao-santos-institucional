@@ -6,7 +6,7 @@ export function LegalContent({ blocks }: { blocks: LegalBlock[] }) {
   return (
     <section className="relative isolate overflow-hidden bg-ivory py-16 md:py-24">
       <SectionCanvas curves="top-right" />
-      <div className="container-luxe max-w-3xl">
+      <div className="container-wide max-w-3xl">
         <div className="space-y-10">
           {blocks.map((b) => (
             <div key={b.h2}>

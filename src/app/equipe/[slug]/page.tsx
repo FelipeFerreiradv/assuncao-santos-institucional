@@ -68,7 +68,7 @@ export default async function MembroPage({
 
       <section className="relative isolate overflow-hidden bg-ivory py-16 md:py-24">
         <SectionCanvas curves="top-left" glow={["sand-tl"]} />
-        <div className="container-luxe grid gap-12 lg:grid-cols-12 lg:gap-16">
+        <div className="container-wide grid gap-12 lg:grid-cols-12 lg:gap-16">
           {/* Retrato + contato */}
           <div className="lg:col-span-4">
             <div className="lg:sticky lg:top-32">

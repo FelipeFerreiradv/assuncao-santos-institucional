@@ -23,7 +23,7 @@ export function PageHero({
   return (
     <section className="relative isolate overflow-hidden bg-ivory pt-32 pb-14 md:pt-40 md:pb-20">
       <SectionCanvas curves={curves} glow={["gold-tr"]} />
-      <div className="container-luxe">
+      <div className="container-wide">
         {crumbs && <Breadcrumb items={crumbs} />}
 
         <Reveal immediate delay={0.05} y={14}>

@@ -42,7 +42,7 @@ export default function SobrePage() {
       {/* História + Missão */}
       <section className="relative isolate overflow-hidden bg-ivory py-20 md:py-28">
         <SectionCanvas curves="top-left" glow={["sand-tl"]} />
-        <div className="container-luxe grid gap-12 lg:grid-cols-12 lg:gap-16">
+        <div className="container-wide grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
             <div className="lg:sticky lg:top-32">
               <Reveal>
@@ -83,7 +83,7 @@ export default function SobrePage() {
       {/* Advogada responsável */}
       <section className="relative isolate overflow-hidden bg-canvas py-24 md:py-32">
         <SectionCanvas curves="horizontal" glow={["gold-tr"]} />
-        <div className="container-luxe grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
+        <div className="container-wide grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
             <Reveal>
               <div className="relative aspect-[4/5] max-w-sm bg-cream">

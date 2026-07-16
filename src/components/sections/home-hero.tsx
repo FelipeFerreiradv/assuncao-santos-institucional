@@ -9,14 +9,13 @@ import {
   useSpring,
 } from "framer-motion";
 import { SITE } from "@/lib/site";
-import { homeHero, trustBar } from "@/content/institucional";
+import { homeHero } from "@/content/institucional";
 import { Reveal } from "@/components/motion/reveal";
 import { TextReveal } from "@/components/motion/text-reveal";
-import { Stagger, StaggerItem } from "@/components/motion/stagger";
 import { ParallaxImage } from "@/components/motion/parallax";
+import { Counter } from "@/components/motion/counter";
 import { WhatsAppCta } from "@/components/shared/whatsapp-cta";
 import { SectionCanvas } from "@/components/shared/section-canvas";
-import { Icon } from "@/components/shared/icon";
 import { Button } from "@/components/ui/button";
 
 const MAX_PARALLAX_PX = 8;
@@ -45,20 +44,21 @@ export function HomeHero() {
   return (
     <section className="relative isolate flex min-h-svh flex-col overflow-hidden bg-ivory pt-28 md:pt-32">
       <SectionCanvas curves="top-right" />
-      <div className="container-luxe flex flex-1 flex-col justify-center pb-14 md:pb-16">
-        <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-12 lg:items-center lg:gap-x-12 xl:gap-x-16">
-          {/* Copy */}
+
+      <div className="container-wide flex flex-1 flex-col justify-center pb-16 md:pb-20">
+        <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-12 lg:items-center lg:gap-x-14 xl:gap-x-20">
+          {/* ————— Apresentação ————— */}
           <div className="relative lg:col-span-7">
             <span
               aria-hidden
-              className="section-number absolute top-6 -left-3 text-[9rem] md:-top-8 md:-left-8 md:text-[15rem]"
+              className="section-number absolute -top-2 -left-3 text-[8rem] md:-top-10 md:-left-8 md:text-[13rem]"
             >
               01
             </span>
 
             <Reveal immediate delay={0.05} y={14} className="relative">
               <p className="flex items-start gap-4 text-xs font-medium uppercase tracking-luxe text-gold-deep">
-                <span aria-hidden className="mt-2 h-px w-10 shrink-0 bg-gold/70" />
+                <span aria-hidden className="mt-2 h-px w-12 shrink-0 bg-gold" />
                 <span className="flex flex-col gap-0.5 leading-relaxed">
                   <span>{homeHero.eyebrow}</span>
                   <span>{homeHero.eyebrowSub}</span>
@@ -71,7 +71,7 @@ export function HomeHero() {
               immediate
               text={homeHero.title}
               delay={0.15}
-              className="relative mt-8 font-display text-5xl leading-[1.1] font-medium tracking-tight text-balance text-ink md:text-6xl xl:text-7xl"
+              className="relative mt-8 font-display text-5xl leading-[1.05] font-medium tracking-tight text-balance text-ink md:text-6xl xl:text-7xl"
             />
 
             <Reveal
@@ -104,7 +104,7 @@ export function HomeHero() {
             </Reveal>
           </div>
 
-          {/* Retrato em arco */}
+          {/* ————— Retrato em arco ————— */}
           <div
             className="relative mx-auto w-full max-w-md lg:col-span-5 lg:max-w-none"
             onMouseMove={handleMouseMove}
@@ -148,33 +148,35 @@ export function HomeHero() {
           </div>
         </div>
 
+        {/* ————— Faixa de autoridade ————— */}
+        <Reveal
+          immediate
+          delay={1.05}
+          className="mt-16 grid max-w-4xl grid-cols-2 gap-8 border-t border-gold/25 pt-10 sm:grid-cols-3 md:mt-20"
+        >
+          {SITE.stats.map((stat) => (
+            <div key={stat.label} className="flex flex-col">
+              <span className="font-display text-4xl leading-none text-gold-deep sm:text-5xl">
+                {stat.display !== null ? (
+                  <span>{stat.display}</span>
+                ) : (
+                  <Counter target={stat.value} suffix={stat.suffix} />
+                )}
+              </span>
+              <span className="mt-3 text-[0.6875rem] uppercase tracking-wide-plus text-slate/70">
+                {stat.label}
+              </span>
+            </div>
+          ))}
+        </Reveal>
+
         <div
           aria-hidden
-          className="pointer-events-none absolute bottom-24 right-0 hidden select-none overflow-hidden lg:block"
+          className="pointer-events-none absolute bottom-16 right-0 hidden select-none overflow-hidden lg:block"
         >
           <span className="ghost-word text-[7.5rem] leading-none xl:text-[9rem]">
             ASSUNÇÃO
           </span>
-        </div>
-      </div>
-
-      {/* Trust bar */}
-      <div className="border-t border-ink/10">
-        <div className="container-luxe py-8 md:py-10">
-          <Stagger
-            as="ul"
-            interval={0.12}
-            className="grid grid-cols-2 gap-x-6 gap-y-8 md:gap-x-10 lg:grid-cols-4"
-          >
-            {trustBar.map((item) => (
-              <StaggerItem key={item.highlight} as="li" className="flex items-start gap-3.5">
-                <Icon name={item.icon} className="mt-0.5 size-5 shrink-0 text-gold-dark" />
-                <p className="text-sm leading-relaxed text-slate">
-                  <span className="font-medium text-ink">{item.highlight}</span> {item.text}
-                </p>
-              </StaggerItem>
-            ))}
-          </Stagger>
         </div>
       </div>
     </section>
