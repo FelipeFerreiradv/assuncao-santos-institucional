@@ -31,6 +31,12 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+
+  // Só a home tem hero escuro (as páginas internas abrem com o PageHero ivory).
+  // Enquanto o header está transparente sobre esse hero, ele precisa inverter —
+  // caso contrário os links em `ink` desaparecem sobre a imagem.
+  const overDarkHero = pathname === "/";
+  const light = !scrolled && overDarkHero;
   const reduced = useReducedMotion();
   const { scrollY } = useScroll();
   const menuTriggerRef = useRef<HTMLButtonElement>(null);
@@ -121,7 +127,10 @@ export function Header() {
           "fixed inset-x-0 top-0 z-50 transition-colors duration-700 ease-out-expo",
           scrolled
             ? "border-b border-ink/10 bg-ivory/85 backdrop-blur-md"
-            : "border-b border-transparent bg-transparent"
+            : light
+              ? // Véu sutil sobre o hero: garante leitura mesmo nas partes claras da foto
+                "border-b border-transparent bg-gradient-to-b from-ink/75 via-ink/35 to-transparent"
+              : "border-b border-transparent bg-transparent"
         )}
       >
         <div
@@ -131,7 +140,7 @@ export function Header() {
           )}
         >
           <Link href="/" aria-label={`${SITE.name} — voltar ao início`}>
-            <Wordmark />
+            <Wordmark tone={light ? "dark" : "light"} />
           </Link>
 
           {/* Navegação desktop */}
@@ -148,8 +157,10 @@ export function Header() {
                           href={link.href}
                           aria-current={active ? "page" : undefined}
                           className={cn(
-                            "relative inline-flex items-center gap-1 py-1 text-[0.8125rem] font-medium transition-colors duration-500 ease-out-expo hover:text-ink",
-                            active ? "text-ink" : "text-ink/75"
+                            "relative inline-flex items-center gap-1 py-1 text-[0.8125rem] font-medium transition-colors duration-500 ease-out-expo",
+                            light
+                              ? cn("hover:text-gold", active ? "text-ivory" : "text-ivory/80")
+                              : cn("hover:text-ink", active ? "text-ink" : "text-ink/75")
                           )}
                         >
                           {link.label}
@@ -215,10 +226,20 @@ export function Header() {
                         href={link.href}
                         aria-current={active ? "page" : undefined}
                         className={cn(
-                          "relative py-1 text-[0.8125rem] font-medium transition-colors duration-500 ease-out-expo after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-right after:scale-x-0 after:bg-gold-dark after:transition-transform after:duration-500 after:ease-out-expo hover:text-ink hover:after:origin-left hover:after:scale-x-100",
-                          active
-                            ? "text-ink after:origin-left after:scale-x-100"
-                            : "text-ink/75"
+                          "relative py-1 text-[0.8125rem] font-medium transition-colors duration-500 ease-out-expo after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-right after:scale-x-0 after:transition-transform after:duration-500 after:ease-out-expo hover:after:origin-left hover:after:scale-x-100",
+                          light
+                            ? cn(
+                                "after:bg-gold hover:text-gold",
+                                active
+                                  ? "text-ivory after:origin-left after:scale-x-100"
+                                  : "text-ivory/80"
+                              )
+                            : cn(
+                                "after:bg-gold-dark hover:text-ink",
+                                active
+                                  ? "text-ink after:origin-left after:scale-x-100"
+                                  : "text-ink/75"
+                              )
                         )}
                       >
                         {link.label}
@@ -230,7 +251,15 @@ export function Header() {
           </nav>
 
           <div className="hidden lg:block">
-            <WhatsAppCta label="Falar no WhatsApp" size="sm" variant="outline" />
+            <WhatsAppCta
+              label="Falar no WhatsApp"
+              size="sm"
+              variant="outline"
+              className={cn(
+                light &&
+                  "border-ivory/45 text-ivory hover:border-gold hover:bg-gold/15 hover:text-gold"
+              )}
+            />
           </div>
 
           <button
@@ -242,8 +271,17 @@ export function Header() {
             aria-label="Abrir menu de navegação"
             className="-mr-2 flex size-11 flex-col items-center justify-center gap-[7px] lg:hidden"
           >
-            <span aria-hidden className="h-px w-6 bg-ink" />
-            <span aria-hidden className="h-px w-4 self-end bg-gold-dark" />
+            <span
+              aria-hidden
+              className={cn("h-px w-6 transition-colors duration-500", light ? "bg-ivory" : "bg-ink")}
+            />
+            <span
+              aria-hidden
+              className={cn(
+                "h-px w-4 self-end transition-colors duration-500",
+                light ? "bg-gold" : "bg-gold-dark"
+              )}
+            />
           </button>
         </div>
       </motion.header>
