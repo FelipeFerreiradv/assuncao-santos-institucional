@@ -1,183 +1,165 @@
 "use client";
 
+import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  motion,
-  useMotionValue,
-  useReducedMotion,
-  useSpring,
-} from "framer-motion";
+import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
+import { Users } from "lucide-react";
 import { SITE } from "@/lib/site";
-import { homeHero } from "@/content/institucional";
-import { Reveal } from "@/components/motion/reveal";
-import { TextReveal } from "@/components/motion/text-reveal";
-import { ParallaxImage } from "@/components/motion/parallax";
+import { homeHero, escritorio } from "@/content/institucional";
 import { Counter } from "@/components/motion/counter";
+import { OrganicCurves } from "@/components/shared/organic-curves";
 import { WhatsAppCta } from "@/components/shared/whatsapp-cta";
-import { SectionCanvas } from "@/components/shared/section-canvas";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
-const MAX_PARALLAX_PX = 8;
+const EASE_LUXE = [0.16, 1, 0.3, 1] as const;
 
+/**
+ * Hero institucional — composição corporativa (fundo full-bleed escuro, headline
+ * editorial com fragmento em itálico dourado, CTAs e faixa de autoridade).
+ * O fundo é a foto real do escritório na Mooca, tratada com o ink da marca.
+ */
 export function HomeHero() {
+  const ref = useRef<HTMLElement>(null);
   const reduced = useReducedMotion();
-  const mx = useMotionValue(0);
-  const my = useMotionValue(0);
-  const cardX = useSpring(mx, { stiffness: 110, damping: 18, mass: 0.4 });
-  const cardY = useSpring(my, { stiffness: 110, damping: 18, mass: 0.4 });
-
-  function handleMouseMove(event: React.MouseEvent<HTMLDivElement>) {
-    if (reduced) return;
-    const rect = event.currentTarget.getBoundingClientRect();
-    const relX = (event.clientX - rect.left) / rect.width - 0.5;
-    const relY = (event.clientY - rect.top) / rect.height - 0.5;
-    mx.set(relX * MAX_PARALLAX_PX * 2);
-    my.set(relY * MAX_PARALLAX_PX * 2);
-  }
-
-  function handleMouseLeave() {
-    mx.set(0);
-    my.set(0);
-  }
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+  const y = useTransform(scrollYProgress, [0, 1], reduced ? [0, 0] : [0, 240]);
+  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   return (
-    <section className="relative isolate flex min-h-svh flex-col overflow-hidden bg-ivory pt-28 md:pt-32">
-      <SectionCanvas curves="top-right" />
+    <section
+      ref={ref}
+      className="relative isolate min-h-svh overflow-hidden bg-ink text-ivory"
+    >
+      {/* ————— Fundo: escritório real, tratado ————— */}
+      <motion.div className="absolute inset-0 -z-10" style={{ y }}>
+        <Image
+          src={escritorio.photos.ampla.src}
+          alt={escritorio.photos.ampla.alt}
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-gradient-to-br from-ink via-ink/90 to-ink/55"
+        />
+        <div aria-hidden className="grain absolute inset-0 opacity-[0.07]" />
+        <OrganicCurves variant="top-right" tone="dark" className="opacity-60" />
+      </motion.div>
 
-      <div className="container-wide flex flex-1 flex-col justify-center pb-16 md:pb-20">
-        <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-12 lg:items-center lg:gap-x-14 xl:gap-x-20">
-          {/* ————— Apresentação ————— */}
-          <div className="relative lg:col-span-7">
-            <span
-              aria-hidden
-              className="section-number absolute -top-2 -left-3 text-[8rem] md:-top-10 md:-left-8 md:text-[13rem]"
-            >
-              01
+      <motion.div
+        style={{ opacity }}
+        className="container-wide relative flex min-h-svh flex-col justify-center pt-32 pb-20"
+      >
+        {/* ————— Eyebrow ————— */}
+        <motion.p
+          initial={reduced ? { opacity: 0 } : { opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, delay: 0.4, ease: EASE_LUXE }}
+          className="flex items-start gap-4 text-xs font-medium uppercase tracking-luxe text-gold"
+        >
+          <span aria-hidden className="mt-2 h-px w-12 shrink-0 bg-gold" />
+          <span className="flex flex-col gap-0.5 leading-relaxed">
+            <span>{homeHero.eyebrow}</span>
+            <span className="text-gold/70">{homeHero.eyebrowSub}</span>
+          </span>
+        </motion.p>
+
+        {/* ————— Headline ————— */}
+        <motion.h1
+          initial={
+            reduced
+              ? { opacity: 0 }
+              : { clipPath: "inset(0 100% 0 0)", opacity: 0 }
+          }
+          animate={{ clipPath: "inset(0 0% 0 0)", opacity: 1 }}
+          transition={{ duration: 1.6, delay: 0.7, ease: EASE_LUXE }}
+          className="mt-8 max-w-5xl font-display text-5xl leading-[1.02] font-medium tracking-tight text-balance sm:text-6xl lg:text-7xl xl:text-[5.5rem]"
+        >
+          {homeHero.titleLines.map((line, i) => (
+            <span key={i} className="block">
+              <span className={cn(line.accent && "italic text-gold")}>{line.text}</span>
             </span>
+          ))}
+        </motion.h1>
 
-            <Reveal immediate delay={0.05} y={14} className="relative">
-              <p className="flex items-start gap-4 text-xs font-medium uppercase tracking-luxe text-gold-deep">
-                <span aria-hidden className="mt-2 h-px w-12 shrink-0 bg-gold" />
-                <span className="flex flex-col gap-0.5 leading-relaxed">
-                  <span>{homeHero.eyebrow}</span>
-                  <span>{homeHero.eyebrowSub}</span>
-                </span>
-              </p>
-            </Reveal>
+        {/* ————— Subtítulo ————— */}
+        <motion.p
+          initial={reduced ? { opacity: 0 } : { opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, delay: 1.3, ease: EASE_LUXE }}
+          className="mt-8 max-w-xl text-base leading-relaxed text-ivory/75 text-justify md:text-lg"
+        >
+          {homeHero.subtitle}
+        </motion.p>
 
-            <TextReveal
-              as="h1"
-              immediate
-              text={homeHero.title}
-              delay={0.15}
-              className="relative mt-8 font-display text-5xl leading-[1.05] font-medium tracking-tight text-balance text-ink md:text-6xl xl:text-7xl"
-            />
-
-            <Reveal
-              immediate
-              delay={0.55}
-              as="p"
-              className="relative mt-8 max-w-xl text-base leading-relaxed text-slate text-justify md:text-lg"
-            >
-              {homeHero.subtitle}
-            </Reveal>
-
-            <Reveal
-              immediate
-              delay={0.75}
-              className="relative mt-10 flex flex-wrap items-center gap-4"
-            >
-              <WhatsAppCta label={homeHero.cta} />
-              <Button asChild variant="outline">
-                <Link href="/atuacao">Conhecer as áreas de atuação</Link>
-              </Button>
-            </Reveal>
-
-            <Reveal
-              immediate
-              delay={0.9}
-              as="p"
-              className="relative mt-6 text-xs leading-relaxed text-slate/80"
-            >
-              {homeHero.microcopy}
-            </Reveal>
-          </div>
-
-          {/* ————— Retrato em arco ————— */}
-          <div
-            className="relative mx-auto w-full max-w-md lg:col-span-5 lg:max-w-none"
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
+        {/* ————— CTAs ————— */}
+        <motion.div
+          initial={reduced ? { opacity: 0 } : { opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, delay: 1.6, ease: EASE_LUXE }}
+          className="mt-10 flex flex-wrap items-center gap-4"
+        >
+          <WhatsAppCta label={homeHero.cta} variant="gold" />
+          <Button
+            asChild
+            variant="outline"
+            className="border-ivory/30 text-ivory hover:border-gold hover:bg-gold/10"
           >
-            <Reveal immediate delay={0.35} y={44} duration={1.2} className="relative">
-              <span
-                aria-hidden
-                className="pointer-events-none absolute inset-0 translate-x-4 translate-y-4 rounded-t-full border border-gold/40"
-              />
+            <Link href="/equipe">
+              <Users aria-hidden strokeWidth={1.75} />
+              Conheça o escritório
+            </Link>
+          </Button>
+        </motion.div>
 
-              <ParallaxImage className="relative aspect-[4/5] rounded-t-full bg-cream">
-                <Image
-                  src="/images/fernanda-hero.jpg"
-                  alt={homeHero.photoAlt}
-                  fill
-                  priority
-                  sizes="(min-width: 1024px) 38vw, (min-width: 640px) 28rem, 100vw"
-                  className="object-cover"
-                />
-                <div
-                  aria-hidden
-                  className="pointer-events-none absolute inset-0 bg-gold/10 mix-blend-multiply"
-                />
-                <div
-                  aria-hidden
-                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/20 via-transparent to-transparent"
-                />
-              </ParallaxImage>
-
-              <motion.div
-                style={reduced ? undefined : { x: cardX, y: cardY }}
-                className="hairline-gold absolute bottom-8 -left-3 flex flex-col gap-2.5 border border-gold/30 bg-paper/90 px-5 py-4 shadow-[0_18px_50px_-30px_rgba(11,15,25,0.4)] backdrop-blur md:bottom-12 md:-left-8"
-              >
-                <p className="text-xs font-medium tracking-wide-plus text-ink">
-                  {SITE.lawyer.name} · {SITE.lawyer.oab}
-                </p>
-                <p className="text-[0.6875rem] text-slate">Sócia-fundadora · Previdenciário</p>
-              </motion.div>
-            </Reveal>
-          </div>
-        </div>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.2, delay: 1.9, ease: EASE_LUXE }}
+          className="mt-6 text-xs leading-relaxed text-ivory/50"
+        >
+          {homeHero.microcopy}
+        </motion.p>
 
         {/* ————— Faixa de autoridade ————— */}
-        <Reveal
-          immediate
-          delay={1.05}
+        <motion.div
+          initial={reduced ? { opacity: 0 } : { opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.3, delay: 2.1, ease: EASE_LUXE }}
           className="mt-16 grid max-w-4xl grid-cols-2 gap-8 border-t border-gold/25 pt-10 sm:grid-cols-3 md:mt-20"
         >
           {SITE.stats.map((stat) => (
             <div key={stat.label} className="flex flex-col">
-              <span className="font-display text-4xl leading-none text-gold-deep sm:text-5xl">
+              <span className="font-display text-4xl leading-none text-gold sm:text-5xl">
                 {stat.display !== null ? (
                   <span>{stat.display}</span>
                 ) : (
                   <Counter target={stat.value} suffix={stat.suffix} />
                 )}
               </span>
-              <span className="mt-3 text-[0.6875rem] uppercase tracking-wide-plus text-slate/70">
+              <span className="mt-3 text-[0.6875rem] uppercase tracking-wide-plus text-ivory/55">
                 {stat.label}
               </span>
             </div>
           ))}
-        </Reveal>
+        </motion.div>
+      </motion.div>
 
-        <div
-          aria-hidden
-          className="pointer-events-none absolute bottom-16 right-0 hidden select-none overflow-hidden lg:block"
-        >
-          <span className="ghost-word text-[7.5rem] leading-none xl:text-[9rem]">
-            ASSUNÇÃO
-          </span>
-        </div>
+      {/* ————— Marca d'água editorial ————— */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute bottom-10 right-0 hidden select-none overflow-hidden lg:block"
+      >
+        <span className="ghost-word text-[7.5rem] leading-none xl:text-[9rem]">
+          ASSUNÇÃO
+        </span>
       </div>
     </section>
   );

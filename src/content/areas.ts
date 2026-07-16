@@ -20,6 +20,9 @@ export type Area = {
   shortDescription: string;
   longDescription: string[];
   bullets: string[];
+  /** Imagem de apoio da área — fundo do painel de destaque na home. */
+  heroImage: string;
+  heroAlt: string;
   responsavel: string;
   keywords: string[];
   /** Área de destaque com página long-form dedicada. */
@@ -49,6 +52,9 @@ export const AREAS: Area[] = [
       "Pensão por morte",
       "Revisões de benefício, recursos administrativos e ações judiciais",
     ],
+    heroImage: "/images/area-previdenciario.jpg",
+    heroAlt:
+      "Mãos de uma pessoa idosa e de uma criança — Direito Previdenciário: aposentadoria, INSS e BPC/LOAS",
     responsavel: "Dra. Fernanda Assunção",
     keywords: [
       "advogada previdenciária Mooca",
@@ -81,6 +87,9 @@ export const AREAS: Area[] = [
       "Direito do consumidor",
       "Resolução de conflitos e acordos",
     ],
+    heroImage: "/images/area-civil.jpg",
+    heroAlt:
+      "Assinatura de um contrato sobre a mesa — Direito Civil: contratos, indenizações e responsabilidade civil",
     responsavel: "Dra. Fernanda Assunção",
     keywords: [
       "advogado civil Mooca",
@@ -111,6 +120,9 @@ export const AREAS: Area[] = [
       "Renegociação e superendividamento",
       "Demandas contra instituições financeiras",
     ],
+    heroImage: "/images/area-bancario.jpg",
+    heroAlt:
+      "Fachada clássica de um banco com colunas — Direito Bancário: revisão de contratos e juros abusivos",
     responsavel: "Dra. Fernanda Assunção",
     keywords: [
       "advogado bancário Mooca",
@@ -141,6 +153,9 @@ export const AREAS: Area[] = [
       "Conflitos e disputas patrimoniais",
       "Assessoria em negociações imobiliárias",
     ],
+    heroImage: "/images/area-imobiliario.jpg",
+    heroAlt:
+      "Fachada de um edifício residencial — Direito Imobiliário: contratos, locação e regularização de imóveis",
     responsavel: "Dra. Fernanda Assunção",
     keywords: [
       "advogado imobiliário Mooca",

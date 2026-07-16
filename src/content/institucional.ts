@@ -12,6 +12,12 @@ export const homeHero = {
   eyebrow: "Assunção & Santos Advogados",
   eyebrowSub: "Mooca · São Paulo · Atendimento em todo o Brasil",
   title: "Advocacia próxima, técnica e humana para proteger o que é seu.",
+  /** Mesmo título, quebrado em linhas — o fragmento `accent` sai em itálico dourado. */
+  titleLines: [
+    { text: "Advocacia próxima,", accent: false },
+    { text: "técnica e humana", accent: true },
+    { text: "para proteger o que é seu.", accent: false },
+  ],
   subtitle:
     "Atuação em Direito Previdenciário, Civil, Bancário e Imobiliário. Cada caso é conduzido com estratégia, transparência e atendimento humanizado — do primeiro contato ao desfecho.",
   cta: "Falar no WhatsApp",

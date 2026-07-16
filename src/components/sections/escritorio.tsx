@@ -69,20 +69,20 @@ export function Escritorio() {
 
           {/* ————— Mosaico de fotos ————— */}
           <div className="lg:col-span-7">
-            <div className="grid grid-cols-2 gap-4 md:gap-5">
-              {/* Foto ampla em destaque */}
-              <Reveal y={40} duration={1.2} className="col-span-2">
+            <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-5">
+              {/* Recepção — destaque com a moldura dourada da marca */}
+              <Reveal y={40} duration={1.2}>
                 <div className="relative">
                   <span
                     aria-hidden
                     className="pointer-events-none absolute -inset-3 border border-gold/40"
                   />
-                  <ParallaxImage className="relative aspect-[16/10] bg-cream" scale={1.08}>
+                  <ParallaxImage className="relative aspect-[4/5] bg-cream" scale={1.08}>
                     <Image
-                      src={photos.ampla.src}
-                      alt={photos.ampla.alt}
+                      src={photos.recepcao.src}
+                      alt={photos.recepcao.alt}
                       fill
-                      sizes="(min-width: 1024px) 55vw, 100vw"
+                      sizes="(min-width: 768px) 22vw, 50vw"
                       className="object-cover"
                     />
                     <div
@@ -93,14 +93,14 @@ export function Escritorio() {
                 </div>
               </Reveal>
 
-              {/* Verticais de apoio */}
-              <Reveal delay={0.12} y={40}>
+              {/* Deslocada — assimetria editorial */}
+              <Reveal delay={0.12} y={40} className="md:mt-12">
                 <div className="relative aspect-[4/5] overflow-hidden bg-cream">
                   <Image
-                    src={photos.recepcao.src}
-                    alt={photos.recepcao.alt}
+                    src={photos.atendimento.src}
+                    alt={photos.atendimento.alt}
                     fill
-                    sizes="(min-width: 1024px) 28vw, 50vw"
+                    sizes="(min-width: 768px) 22vw, 50vw"
                     className="object-cover transition-transform duration-700 ease-out-expo hover:scale-105"
                   />
                   <div
@@ -110,13 +110,13 @@ export function Escritorio() {
                 </div>
               </Reveal>
 
-              <Reveal delay={0.22} y={40}>
+              <Reveal delay={0.22} y={40} className="col-span-2 md:col-span-1 md:mt-4">
                 <div className="relative aspect-[4/5] overflow-hidden bg-cream">
                   <Image
                     src={photos.sala.src}
                     alt={photos.sala.alt}
                     fill
-                    sizes="(min-width: 1024px) 28vw, 50vw"
+                    sizes="(min-width: 768px) 22vw, 100vw"
                     className="object-cover transition-transform duration-700 ease-out-expo hover:scale-105"
                   />
                   <div

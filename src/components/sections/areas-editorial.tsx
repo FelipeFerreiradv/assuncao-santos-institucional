@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
@@ -107,47 +108,71 @@ export function AreasEditorial() {
           {/* ————— Painel de destaque sticky ————— */}
           <div className="hidden lg:col-span-5 lg:block">
             <div className="sticky top-32">
-              <motion.div
-                key={activeArea.slug}
-                initial={{ opacity: 0, scale: 0.97 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, ease: EASE_LUXE }}
-                className="relative flex aspect-[4/5] flex-col justify-end overflow-hidden bg-ink p-8 lg:p-10"
-              >
-                <OrganicCurves variant="diagonal-dark" tone="dark" />
+              <div className="relative flex aspect-[4/5] flex-col justify-end overflow-hidden bg-ink p-8 lg:p-10">
+                {/* Todas as imagens ficam montadas e trocam por cross-fade —
+                    evita recarregar (e piscar) a cada troca de área. */}
+                {AREAS.map((a) => (
+                  <Image
+                    key={a.slug}
+                    src={a.heroImage}
+                    alt={a.heroAlt}
+                    fill
+                    sizes="(min-width: 1024px) 40vw, 100vw"
+                    className={cn(
+                      "object-cover transition-opacity duration-700 ease-out-expo",
+                      a.slug === active ? "opacity-100" : "opacity-0"
+                    )}
+                  />
+                ))}
+
+                {/* Tratamento da marca: ink por cima + véu dourado + grafismos */}
+                <div
+                  aria-hidden
+                  className="absolute inset-0 bg-gradient-to-t from-ink via-ink/85 to-ink/40"
+                />
+                <div aria-hidden className="absolute inset-0 bg-gold/10 mix-blend-overlay" />
+                <OrganicCurves variant="diagonal-dark" tone="dark" className="opacity-50" />
                 <div aria-hidden className="grain absolute inset-0 opacity-[0.06]" />
 
-                <span
-                  aria-hidden
-                  className="relative flex size-12 items-center justify-center rounded-full border border-gold/40 text-gold"
+                <motion.div
+                  key={activeArea.slug}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, ease: EASE_LUXE }}
+                  className="relative"
                 >
-                  <Icon name={activeArea.icon} className="size-5" />
-                </span>
+                  <span
+                    aria-hidden
+                    className="flex size-12 items-center justify-center rounded-full border border-gold/40 text-gold"
+                  >
+                    <Icon name={activeArea.icon} className="size-5" />
+                  </span>
 
-                <span
-                  aria-hidden
-                  className="section-number relative mt-8 text-[6rem] leading-none"
-                  style={{ WebkitTextStroke: "1px rgba(201,163,107,0.55)" }}
-                >
-                  {activeArea.number}
-                </span>
+                  <span
+                    aria-hidden
+                    className="section-number mt-8 block text-[6rem] leading-none"
+                    style={{ WebkitTextStroke: "1px rgba(201,163,107,0.55)" }}
+                  >
+                    {activeArea.number}
+                  </span>
 
-                <h3 className="relative mt-3 font-display text-3xl font-medium tracking-tight text-ivory">
-                  {activeArea.name}
-                </h3>
-                <p className="relative mt-2 font-display text-lg italic text-gold">
-                  {activeArea.tagline}
-                </p>
+                  <h3 className="mt-3 font-display text-3xl font-medium tracking-tight text-ivory">
+                    {activeArea.name}
+                  </h3>
+                  <p className="mt-2 font-display text-lg italic text-gold">
+                    {activeArea.tagline}
+                  </p>
 
-                <ul className="relative mt-7 space-y-2.5 border-t border-ivory/10 pt-6">
-                  {activeArea.bullets.slice(0, 4).map((b) => (
-                    <li key={b} className="flex gap-2.5 text-xs leading-relaxed text-ivory/70">
-                      <span aria-hidden className="mt-1.5 size-1 shrink-0 rounded-full bg-gold" />
-                      {b}
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
+                  <ul className="mt-7 space-y-2.5 border-t border-ivory/10 pt-6">
+                    {activeArea.bullets.slice(0, 4).map((b) => (
+                      <li key={b} className="flex gap-2.5 text-xs leading-relaxed text-ivory/70">
+                        <span aria-hidden className="mt-1.5 size-1 shrink-0 rounded-full bg-gold" />
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              </div>
             </div>
           </div>
         </div>
