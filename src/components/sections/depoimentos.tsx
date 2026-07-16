@@ -41,7 +41,7 @@ export function Depoimentos() {
       <SectionCanvas curves="horizontal" glow={["gold-tl"]} />
       <div className="container-wide">
         <SectionHeading
-          number="07"
+          number="08"
           eyebrow="Depoimentos"
           title="Quem já foi atendido por aqui"
           intro="Avaliações reais e verificadas de clientes no Google."

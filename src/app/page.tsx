@@ -5,6 +5,7 @@ import { QuemSomos } from "@/components/sections/quem-somos";
 import { AreasEditorial } from "@/components/sections/areas-editorial";
 import { Diferenciais } from "@/components/sections/diferenciais";
 import { Processo } from "@/components/sections/processo";
+import { Escritorio } from "@/components/sections/escritorio";
 import { EquipeHome } from "@/components/sections/equipe-home";
 import { Depoimentos } from "@/components/sections/depoimentos";
 import { BlogDestaque } from "@/components/sections/blog-destaque";
@@ -26,7 +27,7 @@ export const metadata: Metadata = buildMetadata({
 
 /**
  * Home institucional — percurso: apresentação → sobre → áreas → diferenciais →
- * metodologia → equipe → depoimentos → conteúdo → contato.
+ * metodologia → escritório → equipe → depoimentos → conteúdo → contato.
  * A home funciona como vitrine que distribui o leitor para as páginas internas;
  * o FAQ vive em /faq e nas páginas de área (onde o schema FAQPage é emitido).
  */
@@ -38,6 +39,7 @@ export default function HomePage() {
       <AreasEditorial />
       <Diferenciais />
       <Processo />
+      <Escritorio />
       <EquipeHome />
       <Depoimentos />
       <BlogDestaque />

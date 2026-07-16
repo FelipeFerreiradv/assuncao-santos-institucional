@@ -176,9 +176,38 @@ export const processo = {
   ],
 } as const;
 
+/* ————— O escritório (estrutura física) —————
+   Copy validada na landing page da Dra. Fernanda (seção de atendimento),
+   ajustada para a voz do escritório. Fotos reais do espaço, na Mooca. */
+export const escritorio = {
+  number: "06",
+  eyebrow: "O escritório",
+  title: "Perto de você, mesmo à distância",
+  text: "O atendimento presencial acontece no escritório, na Mooca, em São Paulo. Mas a distância não é obstáculo: atendemos clientes de todo o Brasil de forma online, com o mesmo cuidado e a mesma proximidade de quem está sentado à sua frente. Onde você estiver, o seu direito pode ser cuidado.",
+  cta: "Ver como chegar",
+  photos: {
+    ampla: {
+      src: "/images/escritorio-ampla.jpg",
+      alt: "Recepção do escritório Assunção & Santos Advogados, na Mooca, em São Paulo",
+    },
+    recepcao: {
+      src: "/images/escritorio-recepcao.jpg",
+      alt: "Logotipo Assunção & Santos Advogados na recepção do escritório na Mooca, São Paulo",
+    },
+    sala: {
+      src: "/images/escritorio-sala.jpg",
+      alt: "Sala de atendimento do escritório Assunção & Santos Advogados na Mooca, São Paulo",
+    },
+    atendimento: {
+      src: "/images/escritorio-atendimento.jpg",
+      alt: "Espaço de atendimento do escritório Assunção & Santos Advogados na Mooca, São Paulo",
+    },
+  },
+} as const;
+
 /* ————— CTA final (home e páginas) ————— */
 export const ctaFinal = {
-  number: "09",
+  number: "10",
   title: "Vamos conversar sobre o seu caso",
   text: "A primeira conversa é reservada e sem compromisso. Entendemos a sua situação, explicamos os caminhos possíveis e, juntos, decidimos os próximos passos — com clareza e sem pressa.",
   cta: "Falar no WhatsApp",

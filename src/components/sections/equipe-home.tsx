@@ -21,7 +21,7 @@ export function EquipeHome() {
       <SectionCanvas curves="horizontal" glow={["gold-tl"]} />
       <div className="container-wide">
         <SectionHeading
-          number="06"
+          number="07"
           eyebrow="Equipe"
           title="Quem conduz cada caso pessoalmente."
           intro="Sociedade individual de advocacia: você é atendido diretamente pela advogada responsável, sem intermediários."

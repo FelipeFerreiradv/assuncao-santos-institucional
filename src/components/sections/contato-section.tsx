@@ -1,6 +1,7 @@
+import Image from "next/image";
 import { Clock, Mail, MapPin, MessageCircle, Phone, type LucideIcon } from "lucide-react";
 import { SITE } from "@/lib/site";
-import { ctaFinal } from "@/content/institucional";
+import { ctaFinal, escritorio } from "@/content/institucional";
 import { SectionCanvas } from "@/components/shared/section-canvas";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { ContactForm } from "@/components/shared/contact-form";
@@ -56,8 +57,25 @@ export function ContatoSection() {
               <ContactInfo icon={Clock} label="Horário" value={SITE.hours.label} />
             </div>
 
+            {/* Foto real do espaço — reforça que o escritório existe e é próximo */}
+            <Reveal delay={0.15}>
+              <div className="relative mt-10 aspect-[16/10] overflow-hidden bg-cream">
+                <Image
+                  src={escritorio.photos.atendimento.src}
+                  alt={escritorio.photos.atendimento.alt}
+                  fill
+                  sizes="(min-width: 1024px) 40vw, 100vw"
+                  className="object-cover"
+                />
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 bg-gold/5 mix-blend-multiply"
+                />
+              </div>
+            </Reveal>
+
             <Reveal delay={0.2}>
-              <div className="mt-10 aspect-[16/10] overflow-hidden border border-stone-300/40">
+              <div className="mt-5 aspect-[16/10] overflow-hidden border border-stone-300/40">
                 <iframe
                   title={`Mapa — ${SITE.name}, ${SITE.region}, ${SITE.city}`}
                   src={SITE.address.mapsEmbed}

@@ -17,7 +17,7 @@ export function BlogDestaque() {
       <div className="container-wide">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <SectionHeading
-            number="08"
+            number="09"
             eyebrow="Conteúdo"
             title="Artigos para você entender os seus direitos"
           />
