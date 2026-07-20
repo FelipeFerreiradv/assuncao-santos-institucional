@@ -45,13 +45,16 @@ export default function EquipePage() {
                   href={`/equipe/${m.slug}`}
                   className="group flex h-full flex-col border border-stone-300/30 bg-paper transition-all duration-500 ease-out-expo hover:-translate-y-1.5 hover:border-gold/60"
                 >
-                  <div className="relative aspect-[4/3] overflow-hidden bg-cream">
+                  {/* 4/5 acompanha o retrato (7/8): mostra a foto inteira — da
+                      parede do escritório até as mãos — cortando só as laterais,
+                      em vez do 4/3 anterior, que deixava apenas o rosto. */}
+                  <div className="relative aspect-[4/5] overflow-hidden bg-cream">
                     <Image
                       src={m.photo}
                       alt={m.photoAlt}
                       fill
                       sizes="(min-width: 768px) 45vw, 100vw"
-                      className="object-cover object-top transition-transform duration-700 ease-out-expo group-hover:scale-105"
+                      className="object-cover object-center transition-transform duration-700 ease-out-expo group-hover:scale-105"
                     />
                     <div aria-hidden className="pointer-events-none absolute inset-0 bg-gold/10 mix-blend-multiply" />
                   </div>

@@ -36,13 +36,15 @@ export function EquipeHome() {
                 href={`/equipe/${membro.slug}`}
                 className="group block border border-stone-300/30 bg-paper transition-all duration-500 ease-out-expo hover:-translate-y-1.5 hover:border-gold/60 hover:shadow-[0_28px_70px_-50px_rgba(11,15,25,0.4)]"
               >
-                <div className="relative aspect-[4/3] overflow-hidden bg-cream">
+                {/* Mesmo enquadramento do card em /equipe: 4/5 acompanha o
+                    retrato e mostra a foto inteira, não só o rosto. */}
+                <div className="relative aspect-[4/5] overflow-hidden bg-cream">
                   <Image
                     src={membro.photo}
                     alt={membro.photoAlt}
                     fill
                     sizes="(min-width: 1024px) 40vw, 100vw"
-                    className="object-cover object-top transition-transform duration-700 ease-out-expo group-hover:scale-105"
+                    className="object-cover object-center transition-transform duration-700 ease-out-expo group-hover:scale-105"
                   />
                   <div
                     aria-hidden

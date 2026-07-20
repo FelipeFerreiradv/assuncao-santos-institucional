@@ -1,10 +1,12 @@
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 /**
- * Marca do escritório — monograma "A&S" (dourado) + wordmark "Assunção & Santos
- * Advogados", em Fraunces. Fiel à logo A&S da cliente, sem depender do arquivo
- * rasterizado (que tem fundo marmorizado).
- * PENDENTE: substituir o monograma por um PNG/SVG do logo com fundo transparente.
+ * Marca do escritório — monograma "A&S" oficial (recortado com fundo
+ * transparente a partir da arte da cliente) + wordmark "Assunção & Santos
+ * Advogados", em Fraunces. O dourado do monograma tem contraste suficiente
+ * tanto sobre o ivory quanto sobre o hero escuro, então a arte é a mesma nos
+ * dois tons — só o texto ao lado inverte.
  */
 export function Wordmark({
   tone = "light",
@@ -16,15 +18,15 @@ export function Wordmark({
   const dark = tone === "dark";
   return (
     <span className={cn("flex items-center gap-3", className)}>
-      <span
+      <Image
+        src="/images/logo-as-monograma.png"
+        alt=""
         aria-hidden
-        className={cn(
-          "flex size-10 shrink-0 items-center justify-center rounded-full border font-display text-sm font-semibold tracking-tight",
-          dark ? "border-gold/50 text-gold" : "border-gold-dark/45 text-gold-deep"
-        )}
-      >
-        A&amp;S
-      </span>
+        width={392}
+        height={320}
+        priority
+        className="h-9 w-auto shrink-0 md:h-10"
+      />
       <span className="flex flex-col">
         <span
           className={cn(
