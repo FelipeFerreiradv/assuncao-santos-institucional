@@ -10,7 +10,7 @@ export const PRIVACIDADE: LegalBlock[] = [
   {
     h2: "1. Controlador dos dados",
     body: [
-      "Este site é mantido pelo Assunção & Santos Advogados (Assunção Santos Sociedade Individual de Advocacia, CNPJ 24.185.338/0001-23), com sede na Rua Fernando Falcão, 1111 — sala 304, Mooca, São Paulo/SP. Para assuntos relativos a dados pessoais, entre em contato pelo e-mail recepcaoassuncaoesantosadv@gmail.com.",
+      "Este site é mantido pelo Assunção & Santos Advogados (Assunção Santos Sociedade Individual de Advocacia, CNPJ 24.185.338/0001-23), com sede na Rua Fernando Falcão, 1111 — sala 304, Mooca, São Paulo/SP. Para assuntos relativos a dados pessoais, entre em contato pelo e-mail contato@assuncaoesantos.com.br.",
     ],
   },
   {

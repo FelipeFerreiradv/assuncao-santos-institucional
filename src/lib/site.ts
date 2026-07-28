@@ -53,7 +53,7 @@ export const SITE = {
     whatsappUrl: `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`,
     landlineDisplay: "(11) 2604-8915",
     landlineE164: "+551126048915",
-    email: "recepcaoassuncaoesantosadv@gmail.com",
+    email: "contato@assuncaoesantos.com.br",
   },
 
   address: {
